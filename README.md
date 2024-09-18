@@ -15,13 +15,11 @@ And the R package [mgcv](https://CRAN.R-project.org/package=mgcv) is required fo
 
 ### Main Model
 ---
-<div class="warning" style='background-color:#E9D8FD; color: #69337A; border-top: solid #805AD5 4px; border-radius: 4px;'>
-<p style='mergin-left:1em;'>
-<em> class </em> <b>FDSS</b> (X_grid, *, mask = None,  device = "cpu")
-</p>
-</div>
+
+> class **FDSS**(X_grid, *, mask = None,  device = "cpu")
+
 The main object for the FDSS model.
-> **FDSS.\_\_init\_\_**(X_grid, *, mask = None,  device = "cpu")
+> FDSS.**\_\_init\_\_**(X_grid, *, mask = None,  device = "cpu")
 
 Initial the FDSS model.
 ##### Arguments
@@ -31,7 +29,7 @@ Initial the FDSS model.
         Mask of grid $\mathbf{M}_r$ for irregular domain with the same size of X_grid, where `True`: interior of domain, `False`: exterior. (can be generated with `gen_mask`). 
   + `device` *(sting, {'cpu', 'cuda:0'})*
   
-> **FDSS.fit** (X, Y, sp=None, method='cg', **kwargs)
+> FDSS.**fit** (X, Y, sp=None, method='cg', **kwargs)
 
 Fit the FDSS model with sample data.
 ##### Arguments
@@ -43,7 +41,7 @@ Fit the FDSS model with sample data.
   + `**batch_num` *(int)*: Number of batch to split the sample when calculating $\bar{\mathbf{Y}}$.
   + `**print_every` *(bool)*: Print out the result of each sp in the validation state or not. 
 
-> **FDSS.transform** (X, Y=None, model=None, *, batch_num = 1, eval_func="mse")
+> FDSS.**transform** (X, Y=None, model=None, *, batch_num = 1, eval_func="mse")
 
 Predict data with fitted FDSS model.
 ##### Arguments
