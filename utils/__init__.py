@@ -1,11 +1,11 @@
-from data.testFunction import ( 
+from utils.testFunction import ( 
     FELSPLINE,
     eta
 )
-from data.irrdata import (
+from utils.irrdata import (
     gen_fs_data
 )
-from data.regdata import(
+from utils.regdata import(
     gen_eta_data
 )
 

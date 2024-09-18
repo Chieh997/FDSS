@@ -1,5 +1,5 @@
 import torch
-from data.testFunction import eta
+from utils.testFunction import eta
 from rpy2.robjects import r as rcode
 from rpy2.robjects.packages import importr
 from numpy import array as nparray
