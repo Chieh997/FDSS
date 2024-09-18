@@ -12,27 +12,19 @@ This program requires the following Python packages:
 And the R package [mgcv](https://CRAN.R-project.org/package=mgcv) is required for mask matrices generation.
 
 ## Document
-### Initialization
-> **gen_grid**( *limit, r )
 
-Generate grid for the FDSS model.
-##### Parameters
-  + `*limit` *(tuple of lists)*: several lists to define the limits of x and y 
-  + `r` *(double)*: the resolution of the grid (rounded parameter $r$).
-
->**gen_mask**(grid, bnd)
-
-Generate mask for the FDSS model.
-##### Parameters
-  + `grid` *(tensor)*: X_grid, should be generated with `gen_grid` or `torch.meshgrid`
-  + `bnd` *(r_list)*: 2D-boundary, can only accept r list.
-
-### Model
-> *class* **FDSS**(X_grid, *, mask = None,  device = "cpu")
-
+### Main Model
+---
+<div class="warning" style='background-color:#E9D8FD; color: #69337A; border-top: solid #805AD5 4px; border-radius: 4px;'>
+<p style='mergin-left:1em;'>
+<em> class </em> <b>FDSS</b> (X_grid, *, mask = None,  device = "cpu")
+</p>
+</div>
 The main object for the FDSS model.
 > **FDSS.\_\_init\_\_**(X_grid, *, mask = None,  device = "cpu")
-##### Parameters
+
+Initial the FDSS model.
+##### Arguments
   + `X_grid` *(tensor)*: 
     The grid $\mathbf{X}_r$ used to generate $\bar{\mathbf{Y}}$, should be generated with `gen_grid` or `torch.meshgrid`
   + `mask` *(bool_tensor)*:  
@@ -40,7 +32,9 @@ The main object for the FDSS model.
   + `device` *(sting, {'cpu', 'cuda:0'})*
   
 > **FDSS.fit** (X, Y, sp=None, method='cg', **kwargs)
-##### Parameters
+
+Fit the FDSS model with sample data.
+##### Arguments
   + `X` *(tensor)*: X samples.
   + `Y` *(tensor)*: Y samples. 
   + `sp` *(None or list)*: 
@@ -50,9 +44,28 @@ The main object for the FDSS model.
   + `**print_every` *(bool)*: Print out the result of each sp in the validation state or not. 
 
 > **FDSS.transform** (X, Y=None, model=None, *, batch_num = 1, eval_func="mse")
+
+Predict data with fitted FDSS model.
+##### Arguments
   + `X` *(tensor)*: X samples.
   + `Y` *(None or tensor)*: Real Y values, can be used to calculate MSE or ISE.
   + `model` *(None or FDSS.model)*: 
     FDSS model. If None, it will use the model that fitted with the `FDSS.fit` before.
   + `batch_num` *(int)*: Number of batch to split the sample when calculating $\hat{\mathbf{Y}}$.
   + `eval_func` *(string, {"mse", "ise"})*: Evaluation function. 
+
+### Usage
+---
+> **gen_grid**( *limit, r )
+
+Generate grid for the FDSS model.
+##### Arguments
+  + `*limit` *(tuple of lists)*: several lists to define the limits of x and y 
+  + `r` *(double)*: the resolution of the grid (rounded parameter $r$).
+
+>**gen_mask**(grid, bnd)
+
+Generate mask for the FDSS model.
+##### Arguments
+  + `grid` *(tensor)*: X_grid, should be generated with `gen_grid` or `torch.meshgrid`
+  + `bnd` *(r_list)*: 2D-boundary, can only accept r list.
