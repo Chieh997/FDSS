@@ -18,11 +18,11 @@ This program requires the following:
 + [mgcv](https://CRAN.R-project.org/package=mgcv): This R package is required for generating mask matrices. 
 
 ## Documentation
-See [documentation]() for details of model settings.
+See [documentation](https://github.com/Chieh997/FDSS/blob/main/DOCUMENTAION.md) for details of model settings.
 
 ## Example
-- [Example_IrrDom]() provides an illustrative example of applying the FDSS method to irregular domains.
-- [Example_RegDom]() provides an illustrative example of applying the FDSS method to regular domains.
+- [Example_IrrDom](https://github.com/Chieh997/FDSS/blob/main/Example_IrrDom.ipynb) provides an illustrative example of applying the FDSS method to irregular domains.
+- [Example_RegDom](https://github.com/Chieh997/FDSS/blob/main/Example_RegDom.ipynb) provides an illustrative example of applying the FDSS method to regular domains.
 
 
 ## Basic Usage
